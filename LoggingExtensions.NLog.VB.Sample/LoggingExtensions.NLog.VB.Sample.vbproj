@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -15,7 +15,7 @@
     <AssemblyName>this.Log-NLog.Sample.VB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
@@ -45,6 +45,7 @@
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42024,42025,42026,42029,42030,42031,42032,42036,42099,42104,42105,42106,42107,42108,42109,42353,42354,42355</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -57,6 +58,7 @@
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42024,42025,42026,42029,42030,42031,42032,42036,42099,42104,42105,42106,42107,42108,42109,42353,42354,42355</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -72,8 +74,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.10\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -82,14 +85,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="this.Log, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\this.Log.0.0.2.0\lib\net40\this.Log.dll</HintPath>
-    </Reference>
-    <Reference Include="this.Log-NLog, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\this.Log-NLog.0.0.2.0\lib\net40\this.Log-NLog.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssembly.vb">
@@ -129,6 +124,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoggingExtensions.Core\LoggingExtensions.Core.csproj">
+      <Project>{f61eb8dd-2e99-4e3b-96f0-8015fc6fb880}</Project>
+      <Name>LoggingExtensions.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggingExtensions.NLog\LoggingExtensions.NLog.csproj">
+      <Project>{e045c968-1b32-493f-a3c1-b428a2789f44}</Project>
+      <Name>LoggingExtensions.NLog</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
